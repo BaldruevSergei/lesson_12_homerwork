@@ -59,11 +59,29 @@ function creatTopic(number, text) {
  });
 
  root.appendChild(list);
+// вариант 3. 
+const words = [
+    "Заголовок 1",
+    "Заголовок 2",
+     "Заголовок 3",
+     "Заголовок 4",
+     "Заголовок 5"
+  ];
 
+  function getList (array) {
+    const olNode = document.createElement("ol");
+    array.forEach(word => {
+        const liElem = document.createElement("li");
+        liElem.innerText = word;
+        olNode.append(liElem);
+    })
+    return olNode;
+  }
+  root.append(getList(words));
 
 // Задача: Создание ссылок
 // Условие: Подготовьте массив из объектов со свойствами label и link. Создайте функцию, которая проходится циклом по этмоу массиву и создает ссылки, ведущие на link с содержимым label.
-
+// вариант 1
 function createLink({ label, link }) {
     const container = document.createElement("div");
     const linkNode = document.createElement("a");
@@ -80,9 +98,11 @@ const linksArray = [
     { label: "Контакты", link: "/contact" }
 ];
 
-const root = document.querySelector('#root');
+//const root = document.querySelector('#root');
 
 linksArray.forEach(linkInfo => {
     const linkElement = createLink(linkInfo);
     root.appendChild(linkElement);
 });
+//вариант 2. 
+
